@@ -1,0 +1,126 @@
+<mat-card>
+  <form [formGroup]="frmStepTwo">
+    <ul style="list-style-type:none">
+
+      <li class="mat-form-field">
+        <mat-form-field>
+          <input matInput placeholder="Nume" formControlName="name" />
+
+          <mat-error *ngIf="name.errors?.minlength && name.touched">
+            Numele preparatului trebuie sa contina cel putin 2 caractere.
+          </mat-error>
+
+          <mat-error *ngIf="name.errors?.maxlength && name.touched">
+            Numele preparatului nu poate contine mai mult de 25 caractere.
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          
+          <mat-label>Categorie</mat-label>
+          <select matNativeControl formControlName="category">
+            <option *ngFor="let categ of categories" [value]="categ.name"> {{ categ.name }} </option>
+          </select>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Pret" formControlName="price" />
+
+          <mat-error *ngIf="price.errors?.pattern && price.touched">
+            Pretul este un numar real pozitiv.
+          </mat-error>
+        </mat-form-field>
+      </li>
+
+      <li> 
+        <br>
+      </li>
+
+      <li>
+        <div class="display">
+          <label class="loading" for="filess" class="mat-stroked-button">Fotografie preparat</label>
+          <input class="loading" type="file" id="filess" (change)="chooseFile($event)" accept=".png,.jpg,.jfif"
+            style="display: none;" />
+          <input class="loading" type="hidden" name="fileHidden" formControlName="imageInput" />
+          <progress class="loading" max="100" [value]="this.uploadImageService.uploadProgress | async"></progress>
+
+          <div class="menu-photo" *ngIf="foodImageURL.value != ''">
+            <img class="menu-photo" [src]="foodImageURL.value" />
+          </div>
+
+        </div>
+      </li>
+
+      <mat-card-actions align="end">
+        <li>
+          <button mat-raised-button [disabled]="frmStepTwo.invalid" color="primary" (click)="saveMenuItem()">Salveaza</button>
+        </li>
+      </mat-card-actions>
+    </ul>
+  </form>
+</mat-card>
+
+<mat-spinner *ngIf="showSpinner"></mat-spinner>
+
+<ul style="list-style-type:none">
+  <li class="list-item" *ngFor="let menuItem of editMenuItem.controls; index as i">
+    <ng-container [formGroup]="menuItem">
+      <mat-card class="menu-item">
+        <mat-card-header>
+
+          <mat-card-title>
+            <mat-form-field>
+              <input matInput placeholder="Nume" formControlName="name" />
+
+              <mat-error *ngIf="menuItem.get('name').errors?.minlength && menuItem.get('name').touched">
+                Cel putin 2 caractere.
+              </mat-error>
+
+              <mat-error *ngIf="name.errors?.maxlength && name.touched">
+                Numele preparatului nu poate contine mai mult de 25 caractere.
+              </mat-error>
+              
+            </mat-form-field>
+          </mat-card-title>
+
+          <mat-card-subtitle>
+            <mat-form-field>
+
+              <mat-label>Categorie</mat-label>
+              <select matNativeControl formControlName="category" [compareWith]="compareObjects">
+                <option *ngFor="let categ of categories" [value]="categ.name"> {{ categ.name }} </option>
+              </select>
+
+            </mat-form-field>
+          </mat-card-subtitle>
+
+        </mat-card-header>
+
+        <img class="image" mat-card-image [src]="menuItem.get('foodImageURL').value">
+        <input class="loading" type="hidden" name="fileHidden" formControlName="imageInput" />
+
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput placeholder="Pret" formControlName="price" />
+
+            <mat-error *ngIf="menuItem.get('price').errors?.pattern && menuItem.get('price').touched">
+              Pretul este un numar real pozitiv.
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="warn" (click)="removeMenuItem(editMenuItem.controls[i], i)">-</button>
+
+          <button mat-raised-button color="primary" (click)="editSelectedMenuItem(editMenuItem.controls[i])"
+            [disabled]="!menuItem.valid">Editeaza</button>
+          <label class="loading" for="menuPhoto" class="mat-stroked-button">Schimba fotografia</label>
+          <input class="loading" type="file" id="menuPhoto"
+            (change)="chooseFileForMenu($event, editMenuItem.controls[i])" accept=".png,.jpg,.jfif" style="display: none;" />
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </li>
+</ul>

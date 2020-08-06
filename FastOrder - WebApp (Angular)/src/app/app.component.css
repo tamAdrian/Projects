@@ -1,0 +1,6 @@
+.mat-spinner {
+    position: relative;
+    margin-left: 50%;
+    margin-top: 15%;
+    transform: translateX(-50%)
+  }

@@ -1,0 +1,23 @@
+<mat-spinner class="mat-spinner" *ngIf="showSpinner"></mat-spinner>
+
+<ul style="list-style: none;">
+  <li *ngFor="let placedOrder of placedOrders">
+    <mat-card class="order">
+
+      <mat-card-header>
+        <mat-card-subtitle> {{ placedOrder.date }} - {{ placedOrder.hour }} - persoane: {{ placedOrder.numberOfPeople }}  </mat-card-subtitle> 
+    </mat-card-header>
+     
+      <mat-card-content>
+        <li *ngFor="let menuItem of placedOrder.order.orders">
+          {{ menuItem.name }} x {{ menuItem.quantity }}
+        </li>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" [disabled]="placedOrder.status != 'nepreluata'" (click)="changePlacedOrderStatus(placedOrder)">Preia comanda</button>
+      </mat-card-actions>
+    
+    </mat-card>
+  </li>
+</ul>

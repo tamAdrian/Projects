@@ -1,0 +1,28 @@
+.mat-form-field {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.menu-photo {
+  height: 100px;
+  width: 160px;
+  margin-top: 5px;
+}
+
+.loading {
+  display: block;
+}
+
+.display {
+  display: inline-block
+}
+
+.menu-item {
+  max-width: 300px;
+  margin-bottom: 25px;
+}
+
+.list-item{
+  float: left;
+  width: 50%;
+}

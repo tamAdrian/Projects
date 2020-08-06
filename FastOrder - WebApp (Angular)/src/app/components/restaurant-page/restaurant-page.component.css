@@ -1,0 +1,37 @@
+.mat-form-field {
+    width: 30% !important;
+    margin-top: 16px;
+}
+
+textarea {
+    height: 15vh;
+}
+
+li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.inline {
+    display:inline-block;
+    margin-right:5px; 
+    width: 15% !important;
+}
+
+.coordinates {
+    color: "#FFFFFF" !important
+}
+
+.restaurant_photo {
+    height: 100px;
+    width: 160px;
+    margin-top: 5px;
+}
+
+.div1{
+    float: left;
+}
+
+.div2{
+    float: left;
+    clear: left;
+}

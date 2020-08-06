@@ -1,0 +1,13 @@
+
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+  <div>Fast<span>Order</span></div>
+  <mat-spinner *ngIf="showSpinner"></mat-spinner>
+</div>
+<br/>
+<div class="login">
+  <button class="login-button" (click)="userService.login()">Login</button>
+  <br>
+  <a routerLink="/new-user">Inregistrare</a>
+</div>

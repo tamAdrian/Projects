@@ -1,0 +1,26 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+
+<mat-toolbar color="primary">
+    <span>FastOrder</span>
+    <div class="remaining-space"></div>
+    <button  mat-raised-button color="primary" (click)="logout()">Logout</button>
+</mat-toolbar>
+
+<mat-horizontal-stepper #stepper>
+
+  <mat-step label="Pagina restaurant" [stepControl]="frmStepOne">
+    <app-restaurant-page></app-restaurant-page>
+  </mat-step>
+
+  <mat-step label="Meniu" [stepControl]="frmStepTwo">
+    <app-restaurant-menu></app-restaurant-menu>
+  </mat-step>
+
+  <mat-step label="Comenzi">
+    <app-orders></app-orders>
+  </mat-step>
+  
+</mat-horizontal-stepper>
