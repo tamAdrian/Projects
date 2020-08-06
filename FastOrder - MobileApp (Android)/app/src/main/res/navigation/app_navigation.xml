@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.restaurantapplication.todo.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_restaurantListFragment"
+            app:destination="@id/restaurantListFragment"
+            app:popUpTo="@id/app_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantListFragment"
+        android:name="com.example.restaurantapplication.todo.restaurants.RestaurantListFragment"
+        android:label="restaurant_list_fragment"
+        tools:layout="@layout/restaurant_list_fragment">
+        <action
+            android:id="@+id/action_restaurantListFragment_to_restaurantPageFragment"
+            app:destination="@id/restaurantPageFragment" />
+        <action
+            android:id="@+id/action_restaurantListFragment_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantPageFragment"
+        android:name="com.example.restaurantapplication.todo.restaurantPage.RestaurantPageFragment"
+        android:label="restaurant_page_fragment"
+        tools:layout="@layout/restaurant_page_fragment">
+        <argument
+            android:name="restaurantName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_restaurantPageFragment_to_restaurantMenu"
+            app:destination="@id/restaurantMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantMenu"
+        android:name="com.example.restaurantapplication.todo.restaurantMenu.RestaurantMenuFragment"
+        android:label="restaurant_menu_fragment"
+        tools:layout="@layout/restaurant_menu_fragment">
+        <argument
+            android:name="restaurantName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_restaurantMenu_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.example.restaurantapplication.todo.orderDetails.OrderDetailsFragment"
+        android:label="order_details_fragment"
+        tools:layout="@layout/order_details_fragment">
+        <argument
+            android:name="restaurantName"
+            app:argType="string" />
+        <argument
+            android:name="activeOrder"
+            app:argType="com.example.restaurantapplication.model.Order" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_cardPaymentFragment"
+            app:destination="@id/cardPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardPaymentFragment"
+        android:name="com.example.restaurantapplication.todo.payment.CardPaymentFragment"
+        android:label="CardPaymentFragment" >
+        <argument
+            android:name="placedOrder"
+            app:argType="com.example.restaurantapplication.model.PlacedOrder" />
+        <action
+            android:id="@+id/action_cardPaymentFragment_to_restaurantListFragment"
+            app:destination="@id/restaurantListFragment"
+            app:popUpTo="@id/restaurantListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="com.example.restaurantapplication.todo.orderHistory.OrderHistoryFragment"
+        android:label="order_history_fragment"
+        tools:layout="@layout/order_history_fragment" />
+
+</navigation>

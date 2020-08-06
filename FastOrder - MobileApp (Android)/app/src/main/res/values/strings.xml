@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FastOrder</string>
+    <string name="location">Locatie</string>
+    <string name="restaurantImage">Restaurant Image</string>
+    <string name="food_price">"%1$s  RON"</string>
+    <string name="order_price">"Total: %1$s  RON ( %2$s preparate )"</string>
+    <string name="hour">Selecteaza ORA</string>
+    <string name="date">Selecteaza DATA</string>
+    <string name="no_menu">MENIU INDISPONIBIL</string>
+    <string name="view_order">Vizualizeaza Comanda</string>
+    <string name="pay">Plateste</string>
+    <string name="my_orders">Comenzile mele</string>
+    <string name="server_error">Eroare conexiune server.</string>
+    <string name="unsuccessful_payment">Plata nu s-a putut efectua.</string>
+    <string name="successful_payment">Plata efectuata cu succes.</string>
+    <string name="reminder">"Va asteptam in data de %1$s, la ora %2$s."</string>
+    <string name="payment">Plata</string>
+    <string name="no_search_result">Nu exista niciun restaurant cu acest nume.</string>
+    <string name="logout">Logout</string>
+    <string name="search_restaurants">Cauta restaurante...</string>
+</resources>
