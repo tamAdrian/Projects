@@ -1,0 +1,11 @@
+student=10001|tema=1|valoare=3.0|saptamana=4
+student=10002|tema=1|valoare=10.0|saptamana=2
+student=10004|tema=1|valoare=7.0|saptamana=3
+student=10001|tema=2|valoare=9.0|saptamana=4
+student=10002|tema=2|valoare=5.0|saptamana=5
+student=10001|tema=3|valoare=10.0|saptamana=5
+student=10005|tema=1|valoare=9.0|saptamana=2
+student=10005|tema=2|valoare=7.5|saptamana=4
+student=10005|tema=3|valoare=5.5|saptamana=7
+student=10005|tema=6|valoare=6.5|saptamana=10
+student=10005|tema=4|valoare=9.0|saptamana=7

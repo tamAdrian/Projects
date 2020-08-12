@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="616.0" prefWidth="777.0" style="-fx-background-color: #052f52;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GradeController">
+   <children>
+      <SplitPane dividerPositions="0.5006451612903225" layoutY="84.0" prefHeight="512.0" prefWidth="774.0" style="-fx-background-color: #052f52;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="84.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="383.0" style="-fx-background-color: #052f52;">
+               <children>
+                  <TableView fx:id="tableViewGrade" prefHeight="398.4" prefWidth="284.0" style="-fx-background-color: #F5F5DC; -fx-border-style: solid;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnStudent" prefWidth="95.19997864961624" text="Student " />
+                      <TableColumn fx:id="tableColumnTema" prefWidth="88.79998779296875" text="Tema" />
+                        <TableColumn fx:id="tableColumnValoare" prefWidth="100.79994201660156" text="Valoare" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="386.0" style="-fx-background-color: #052f52;">
+               <children>
+                  <ComboBox fx:id="comboBoxHomework" layoutX="171.0" layoutY="29.0" onAction="#handleSelectareTema" prefHeight="30.0" prefWidth="211.0" promptText="Selectati tema" />
+                  <ComboBox fx:id="comboBoxSaptCurenta" layoutX="-1.0" layoutY="-1.0" onAction="#handleSelectareTema" prefHeight="30.0" prefWidth="382.0" promptText="Alegeti saptamana curenta" />
+                  <TextField fx:id="textFieldCautaNume" layoutX="171.0" layoutY="156.0" onAction="#handleCautareNume" prefHeight="26.0" prefWidth="211.0" />
+                  <ListView fx:id="listViewStudents" layoutX="171.0" layoutY="195.0" prefHeight="86.0" prefWidth="211.0" />
+                  <TextArea fx:id="textAreaFeedback" layoutX="83.0" layoutY="346.0" prefHeight="152.0" prefWidth="295.0" style="-fx-background-color: #F5F5DC;">
+                     <font>
+                        <Font name="Calibri Light Italic" size="14.0" />
+                     </font>
+                  </TextArea>
+                  <TextField fx:id="textFieldSaptMotivate" layoutX="231.0" layoutY="87.0" onAction="#handleMotivare" />
+                  <Button fx:id="btnAdaugaNota" layoutX="157.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleAdaugaNota" style="-fx-background-color: #052f52;" text="ADAUGA NOTA" textFill="WHITE">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font></Button>
+                  <TextField fx:id="textFieldValNota" layoutX="298.0" layoutY="312.0" prefHeight="26.0" prefWidth="82.0" />
+                  <Label layoutX="23.0" layoutY="33.0" text="Numar laborator : " textFill="BEIGE">
+                     <font>
+                        <Font name="Calibri Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="33.0" layoutY="158.0" text="Cautare nume" textFill="BEIGE">
+                     <font>
+                        <Font name="Calibri Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="173.0" layoutY="314.0" text="Nota" textFill="BEIGE">
+                     <font>
+                        <Font name="Calibri Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="69.0" layoutY="89.0" text="Motivare" textFill="BEIGE">
+                     <font>
+                        <Font name="Calibri Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="buttonBack" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="62.0" prefWidth="37.0" style="-fx-background-color: #052f52;">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/logos/backIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label alignment="CENTER" layoutX="341.0" layoutY="29.0" text="N O T E" textFill="#f2f2f2">
+         <font>
+            <Font name="Century" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
